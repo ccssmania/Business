@@ -29,6 +29,15 @@ Route::get('index/images/{filename}',function($filename){
 
 	return $response;
 });
+//-----------------Process----------------
 Route::get("/process","ProcessController@index");
 Route::get("/process/create","ProcessController@create");
+Route::post("/process/create", "ProcessController@store");
+Route::get("/process/edit/{id}", "ProcessController@edit");
+Route::post("/process/edit/{id}", "ProcessController@update");
+//----------------Task------------------------------
+Route::get("/task/{id}","TaskController@show");
+Route::get("/task/filter","TaskController@index");
+//--------------------------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
+

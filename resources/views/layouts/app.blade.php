@@ -12,7 +12,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css"/>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"
+          media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     
     <link href="{{ url('/css/app.css') }}" rel="stylesheet">
 </head>
@@ -73,7 +77,13 @@
                 </div>
             </div>
         </nav>
+        @if(Session::has('message'))
+            <p class="alert alert-success little-margin-top">{!! Session::get('message') !!}</p>
+        @endif
 
+        @if(Session::has('errorMessage'))
+            <p class="little-margin-top alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('errorMessage') }}</p>
+        @endif
         @yield('content')
     </div>
 

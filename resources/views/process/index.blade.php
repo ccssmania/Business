@@ -8,16 +8,21 @@
 
             </div>
 
-            <form class="form-horizontal" method="post" name="{search_form}">
+            <form class="form-horizontal" >
                 <div class="panel-body">
 
                     <div class="form-group row">
                         <label class="col-sm-2 control-label text-right"><label>ID</label></label>
                         <div class="col-sm-10">
-                            <input type="text" value="" name="id" id="input_id" placeholder="process id" class="form-control">
+                            <input type="number" value="{{$request->id ? $request->id : ''}}" name="id" id="input_id" placeholder="process id" class="form-control">
                         </div>
                     </div>
-                  
+                    <div class="form-group row">
+                        <label class="col-sm-2 control-label text-right"><label>Process Name</label></label>
+                        <div class="col-sm-10">
+                            <input type="text" value="{{$request->name ? $request->name : ''}}" name="name"  placeholder="process name" class="form-control">
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-footer">
                     <div class="form-group row">
@@ -49,11 +54,11 @@
                 <tbody>
                     @foreach($processes as $process)
                     <tr>
-                        <td><a href="process_record/open/{process_id}">{{$process->id}}</a></td>
+                        <td><a href="{{url('process/edit/'.$process->id)}}">{{$process->id}}</a></td>
                         <td>{{$process->name}}</td>
                         <td>{{$process->start_time}}</td>
-                        <td>{{$process->end_time}}</td>
-                        <td><a href="{{url('route_sheet/open/'.$process->id)}}" class="btn btn-primary">Task</a></td>
+                        <td>{{$process->end_Time}}</td>
+                        <td><a href="{{url('task/'.$process->id)}}" class="btn btn-primary">Task</a></td>
                     </tr>
                     @endforeach
                 </tbody>

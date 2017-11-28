@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Process;
-use App\Http\Models\ProcessFilter;
-use Session;
-class ProcessController extends Controller
+use App\Task;
+use App\Http\Models\TaskFilter;
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class ProcessController extends Controller
      */
     public function index(Request $request)
     {
-        $processes = ProcessFilter::getProcess($request->name,$request->id);
-        return view("process.index", compact("processes","request"));
+
+        $tasks = TaskFilter::getTask($request->task_id,$request->name);
+        return view("task.index",compact( "tasks", "request"));
     }
 
     /**
@@ -26,9 +27,7 @@ class ProcessController extends Controller
      */
     public function create()
     {
-        $process = new Process;
-
-        return view("process.create",compact("process"));
+        //
     }
 
     /**
@@ -39,15 +38,7 @@ class ProcessController extends Controller
      */
     public function store(Request $request)
     {
-        $process = new Process($request->all());
-
-        if($process->save()){
-            Session::flash("message","Process Saved!");
-            return redirect("/process");
-        }else{
-            Session::flash("errorMessage","Process Saved!");
-            return redirect("/process");
-        }
+        //
     }
 
     /**
@@ -56,9 +47,15 @@ class ProcessController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $process = Process::find($id);
+        $tasks = new Task;
+        if(isset($request->task_id) || $request->name){
+            $tasks = TaskFilter::getTask($request->name,$request->task_id, $id);
+        }else
+            $tasks = $process->tasks()->paginate(8);
+        return view("task.index",compact("process", "tasks", "request"));
     }
 
     /**
@@ -69,8 +66,7 @@ class ProcessController extends Controller
      */
     public function edit($id)
     {
-        $process = Process::find($id);
-        return view("process.edit",compact("process"));
+        //
     }
 
     /**
@@ -82,16 +78,7 @@ class ProcessController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $process = Process::find($id);
-
-        $process->update($request->all());
-        if($process->save()){
-            Session::flash("message","Process Updated!");
-            return redirect("/process");
-        }else{
-            Session::flash("errorMessage","Process Updated!");
-            return redirect("/process");
-        }
+        //
     }
 
     /**

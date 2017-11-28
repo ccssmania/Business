@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+Route::get('index/images/{filename}',function($filename){
+	$path = storage_path("app/images/$filename");
+
+
+	if(!\File::exists($path)) abort(404);
+	$file = \File::get($path);
+	$type = \File::mimeType($path);
+
+	$response = Response::make($file,200);
+	$response->header("Content-Type", $type);
+
+	return $response;
+});
+Route::get("/process","ProcessController@index");
+Route::get("/process/create","ProcessController@create");
+Route::get('/home', 'HomeController@index')->name('home');

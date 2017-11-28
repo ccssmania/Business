@@ -18,7 +18,7 @@ class TableMachine extends Migration
             $table->integer("department_id")->unsigned()->index();
             $table->integer("line_id")->unsigned()->index();
             $table->integer("cell_id")->unsigned()->index();
-            $table->integer("dimensions_m2");
+            $table->integer("dimension_m2");
             $table->integer("weight");
             $table->string("name");
             $table->string("type");

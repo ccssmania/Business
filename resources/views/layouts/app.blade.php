@@ -63,6 +63,13 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{url('/process')}}">Processes</a>
+                                        <a href="{{url('/task')}}">Tasks</a>
+                                        <a href="{{url('/department')}}">Departments</a>
+                                        <a href="{{url('/input')}}">Input</a>
+                                        <a href="{{url('/output')}}">Output</a>
+                                        <a href="{{url('/machine')}}">Machines</a>
+                                        <a href="{{url('/tooling')}}">Tooling</a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

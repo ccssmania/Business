@@ -17,7 +17,7 @@ class TableProcess extends Migration
             $table->increments("id");
             $table->string("name");
             $table->date("start_time");
-            $table->date("end_Time");
+            $table->date("end_time");
         });
     }
 

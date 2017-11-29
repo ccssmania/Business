@@ -1,5 +1,5 @@
 
-INSERT INTO `department` (`id`, `name`, `factory_id`, `type`, `extension_m2`, `number_employees`, `responsible`) VALUES
+INSERT INTO department (id, name, factory_id, type, extension_m2, number_employees, responsible) VALUES
 (1, 'INCOMING MATERIAL', 0, '', 0, 0, ''),
 (2, 'PACKING AND SHIPPING', 0, '', 0, 0, ''),
 (3, 'CUTTING', 0, '', 0, 0, ''),
@@ -16,20 +16,9 @@ INSERT INTO `department` (`id`, `name`, `factory_id`, `type`, `extension_m2`, `n
 (14, 'REPAIR CENTER', 0, '', 0, 0, ''),
 (15, 'MEANS OF TRANSPORT', 0, '', 0, 0, '');
 
--- --------------------------------------------------------
-
-INSERT INTO `input` (`id`, `type`, `description`, `task_id`) VALUES
-(1, 'RAW MATERIAL', 'Walden wood boards', 2),
-(2, 'RAW MATERIAL', 'Wooden boards', 12),
-(3, 'RAW MATERIAL', 'Cherry wood', 22),
-(4, 'ASSEMBLY', 'Assembled chair', 7),
-(5, 'ASSEMBLY', 'Assembled door', 17),
-(6, 'ASSEMBLY', 'Assembled desk', 27),
-(7, 'RAW MATERIAL', 'Wooden boards and leather', 1);
 
 
-
-INSERT INTO `machine` (`id`, `department_id`, `line_id`, `cell_id`, `dimension_m2`, `weight`, `name`, `type`, `description`) VALUES
+INSERT INTO machine (id, department_id, line_id, cell_id, dimension_m2, weight, name, type, description) VALUES
 (1, 1, 0, 0, 0, 0, 'LIFTER 1', '', ''),
 (2, 2, 0, 0, 0, 0, 'PACKING MACHINE 1', '', ''),
 (3, 4, 0, 0, 0, 0, 'SPINDLE MOULDER', '', ''),
@@ -61,7 +50,7 @@ INSERT INTO `machine` (`id`, `department_id`, `line_id`, `cell_id`, `dimension_m
 (29, 2, 0, 0, 0, 0, 'PACKING MACHINE 2', '', '');
 
 
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+INSERT INTO migrations (id, migration, batch) VALUES
 (22, '2014_10_12_000000_create_users_table', 1),
 (23, '2014_10_12_100000_create_password_resets_table', 1),
 (24, '2017_11_27_160217_table_tooling', 1),
@@ -75,17 +64,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 
 
-INSERT INTO `output` (`id`, `type`, `description`, `task_id`) VALUES
-(1, 'ASSEMBLY', 'Assembled chair', 6),
-(2, 'ASSEMBLY', 'Assembled door', 16),
-(3, 'ASSEMBLY', 'Assembled desk', 26),
-(4, 'PACKED PRODUCT', 'Packed chair', 10),
-(5, 'PACKED PRODUCT', 'Packed door', 20),
-(6, 'PACKED PRODUCT', 'Packed desk', 30),
-(7, 'RAW MATERIAL', 'Acquired wooden boards and leather', 1);
 
 
-INSERT INTO `process` (`id`, `name`, `start_time`, `end_Time`) VALUES
+
+INSERT INTO process (id, name, start_time, end_time) VALUES
 (1, 'CHAIR WITH ARMRESTS', '2017-05-01', '2017-05-16'),
 (2, 'SLIDING DOOR', '2017-04-20', '2017-04-30'),
 (3, 'WRITING DESK', '2017-05-16', '2017-05-30'),
@@ -94,8 +76,31 @@ INSERT INTO `process` (`id`, `name`, `start_time`, `end_Time`) VALUES
 (6, 'prueba session', '2017-11-29', '2017-11-30');
 
 
-INSERT INTO `task` (`id`, `name`, `description`, `start_time`, `end_time`, `setup`, `cycletime`, `process_id`, `department_id`, `machine_id`, `tooling_id`) VALUES
-(1, 'Acquiring wooden boards and leather edited', 'Acquisition of raw material from the relative department <span style=\"background-color: rgb(255, 255, 0);\">EDITED</span>', '2017-05-01', '2017-05-01', 1.0000, 20.0000, 1, 1, 1, 17),
+
+
+INSERT INTO tooling (id, name, description) VALUES
+(1, 'CIRCULAR BLADES', ''),
+(2, 'PRESSURE BARREL', ''),
+(3, 'CLEAVE SAW', ''),
+(4, 'ADJUST SAW', ''),
+(5, 'PLANER', ''),
+(6, 'GRINDING TABLE', ''),
+(7, 'GRINDSTONE', ''),
+(8, 'ABRASIVE PAPER', ''),
+(9, 'DRILLHEADS', ''),
+(10, 'MONTAGE TABLE', ''),
+(11, 'PRESS FORM', ''),
+(12, 'GLUE PUMP', ''),
+(13, 'PLANING BENCH', ''),
+(14, 'AEROTEMPER', ''),
+(15, 'SPRAY GUN', ''),
+(16, 'DRILLS', ''),
+(17, 'COMPRESSOR', ''),
+(18, 'SCREWS', ''),
+(19, 'VACUUM CLEANER', '');
+
+INSERT INTO task (id, name, description, start_time, end_time, setup, cycletime, process_id, department_id, machine_id, tooling_id) VALUES
+(1, 'Acquiring wooden boards and leather edited', 'Acquisition of raw material from the relative department <span style="background-color: rgb(255, 255, 0);">EDITED</span>', '2017-05-01', '2017-05-01', 1.0000, 20.0000, 1, 1, 1, 17),
 (2, 'Seat, back, armrests and legs cutting', 'Cutting of the components of the chair from the raw material', '2017-05-02', '2017-05-04', 3.0000, 120.7000, 1, 3, 4, 1),
 (3, 'Parts planing', 'Planing of the component previously cutted', '2017-05-05', '2017-05-06', 2.0000, 75.0000, 1, 5, 8, 4),
 (4, 'Polishing of seat, back, armrests and legs', '', '2017-05-08', '2017-05-09', 4.0000, 200.0000, 1, 6, 10, 14),
@@ -127,33 +132,28 @@ INSERT INTO `task` (`id`, `name`, `description`, `start_time`, `end_time`, `setu
 (30, 'Packing and shipping of desk', 'Operations to pack and send the product', '2017-05-30', '2017-05-30', 4.9000, 110.0000, 3, 2, 29, 0),
 (31, 'Prueba final', '<p>esto es unaprueba</p>', '2017-11-30', '2017-12-03', 4.5000, 3.5000, 1, 10, 15, 16),
 (32, 'Acquiring wooden boards and leather Edited', 'Acquisition of raw material from the relative department Edited', '2017-05-01', '2017-05-01', 1.0000, 20.0000, 1, 1, 1, 17),
-(33, 'Acquiring wooden boards and leather edited', 'Acquisition of raw material from the relative department <span style=\"background-color: rgb(255, 255, 0);\">EDITED</span>', '2017-05-01', '2017-05-01', 1.0000, 20.0000, 1, 1, 1, 16);
+(33, 'Acquiring wooden boards and leather edited', 'Acquisition of raw material from the relative department <span style="background-color: rgb(255, 255, 0);">EDITED</span>', '2017-05-01', '2017-05-01', 1.0000, 20.0000, 1, 1, 1, 16);
 
 
-INSERT INTO `tooling` (`id`, `name`, `description`) VALUES
-(1, 'CIRCULAR BLADES', ''),
-(2, 'PRESSURE BARREL', ''),
-(3, 'CLEAVE SAW', ''),
-(4, 'ADJUST SAW', ''),
-(5, 'PLANER', ''),
-(6, 'GRINDING TABLE', ''),
-(7, 'GRINDSTONE', ''),
-(8, 'ABRASIVE PAPER', ''),
-(9, 'DRILLHEADS', ''),
-(10, 'MONTAGE TABLE', ''),
-(11, 'PRESS FORM', ''),
-(12, 'GLUE PUMP', ''),
-(13, 'PLANING BENCH', ''),
-(14, 'AEROTEMPER', ''),
-(15, 'SPRAY GUN', ''),
-(16, 'DRILLS', ''),
-(17, 'COMPRESSOR', ''),
-(18, 'SCREWS', ''),
-(19, 'VACUUM CLEANER', '');
+INSERT INTO input (id, type, description, task_id) VALUES
+(1, 'RAW MATERIAL', 'Walden wood boards', 2),
+(2, 'RAW MATERIAL', 'Wooden boards', 12),
+(3, 'RAW MATERIAL', 'Cherry wood', 22),
+(4, 'ASSEMBLY', 'Assembled chair', 7),
+(5, 'ASSEMBLY', 'Assembled door', 17),
+(6, 'ASSEMBLY', 'Assembled desk', 27),
+(7, 'RAW MATERIAL', 'Wooden boards and leather', 1);
+
+INSERT INTO output (id, type, description, task_id) VALUES
+(1, 'ASSEMBLY', 'Assembled chair', 6),
+(2, 'ASSEMBLY', 'Assembled door', 16),
+(3, 'ASSEMBLY', 'Assembled desk', 26),
+(4, 'PACKED PRODUCT', 'Packed chair', 10),
+(5, 'PACKED PRODUCT', 'Packed door', 20),
+(6, 'PACKED PRODUCT', 'Packed desk', 30),
+(7, 'RAW MATERIAL', 'Acquired wooden boards and leather', 1);
 
 
-
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+INSERT INTO users (id, name, email, password, remember_token, created_at, updated_at) VALUES
 (1, 'ccss', 'ccss@utp.edu.co', '$2y$10$4idihMmuyHiFykt29o3aLu4fmSQR125aRTICS6jcI672QAGx3K5Xi', NULL, '2017-11-29 09:22:23', '2017-11-29 09:22:23');
 

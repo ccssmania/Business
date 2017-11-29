@@ -58,7 +58,7 @@
                         <td>{{$process->name}}</td>
                         <td>{{$process->start_time}}</td>
                         <td>{{$process->end_Time}}</td>
-                        <td><a href="{{url('task/'.$process->id)}}" class="btn btn-primary">Task</a></td>
+                        <td><a href="{{url('task/index/'.$process->id)}}" class="btn btn-primary">Task</a></td>
                     </tr>
                     @endforeach
                 </tbody>

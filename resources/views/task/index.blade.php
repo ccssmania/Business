@@ -40,9 +40,9 @@
         
         <a href="{{url('/task/create')}}" class="btn btn-info"><span
                     class="glyphicon glyphicon-plus-sign"></span> Add New task</a>
-        <div class="table table-responsive">
+        <div class="table table-responsive micro-margin-top">
 
-            <table class="table table-bordered">
+            <table id="table" class="table table-bordered">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -55,6 +55,7 @@
                     <th>Dept. ID</th>
                     <th>Machine. ID</th>
                     <th>Tool. ID</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -62,8 +63,9 @@
                     <tr>
                         <td><a href="{{url('task/edit/'.$task->id)}}">{{$task->id}}</a></td>
                         <td>{{$task->name}}</td>
-                        <td> {{$task->description}} </td>
+                        <td> {!!$task->description!!} </td>
                         <td>{{$task->start_time}}</td>
+                        <td>{{$task->end_time}}</td>
                         <td>{{$task->setup}}</td>
                         <td>{{$task->cycletime}}</td>
                         <td>{{$task->department_id}}</td>
@@ -80,11 +82,10 @@
                 </tfoot>
             </table>
             <div class="text-center" colspan="9">
-                {{$tasks->links()}}
             </div>
         </div>
     </div>
-    
+
 
     <!-- MODAL -->
     @foreach($tasks as $task)

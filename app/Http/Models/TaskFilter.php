@@ -24,7 +24,7 @@ class TaskFilter {
         }
         $task->orderBy('id');
         
-        return $task->paginate(8);
+        return $task->get();
         
     }
     

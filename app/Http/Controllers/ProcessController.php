@@ -8,6 +8,10 @@ use App\Http\Models\ProcessFilter;
 use Session;
 class ProcessController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +49,7 @@ class ProcessController extends Controller
             Session::flash("message","Process Saved!");
             return redirect("/process");
         }else{
-            Session::flash("errorMessage","Process Saved!");
+            Session::flash("errorMessage","Error!");
             return redirect("/process");
         }
     }
@@ -89,7 +93,7 @@ class ProcessController extends Controller
             Session::flash("message","Process Updated!");
             return redirect("/process");
         }else{
-            Session::flash("errorMessage","Process Updated!");
+            Session::flash("errorMessage","Error!");
             return redirect("/process");
         }
     }

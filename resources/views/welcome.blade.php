@@ -50,9 +50,9 @@
 </div>
 
 <div class="container1 text-center">
-    <h1>Hola mundo</h1>
-    <h3><em>--</em></h3>
-    <h4> </h4>
+    <h1>Knowledge And Controll Systems</h1>
+    <h3><em>Business Innovation And Informatics Systems</em></h3>
+    <h4>Felice - Emanuele - Cristian </h4>
     @if (Auth::guest())
         <a href="{{ route('login') }}" class="btn btn-primary ">Login</a>
         <a href="{{ route('register') }}" class="btn btn-primary ">Register</a>

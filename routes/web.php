@@ -36,8 +36,13 @@ Route::post("/process/create", "ProcessController@store");
 Route::get("/process/edit/{id}", "ProcessController@edit");
 Route::post("/process/edit/{id}", "ProcessController@update");
 //----------------Task------------------------------
-Route::get("/task/{id}","TaskController@show");
+Route::get("/task/index/{id}","TaskController@show");
 Route::get("/task/filter","TaskController@index");
+Route::get("/task/create","TaskController@create");
+Route::post("/task/create", "TaskController@store");
+Route::get("/task/edit/{id}", "TaskController@edit");
+Route::post("/task/edit/{id}", "TaskController@update");
 //--------------------------------------------------
+Route::get("/contact","HomeController@contact");
 Route::get('/home', 'HomeController@index')->name('home');
 

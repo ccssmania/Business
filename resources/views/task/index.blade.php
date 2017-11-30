@@ -106,7 +106,7 @@
                 <!-- Modal Body -->
                 <div class="modal-body">
                     <div class="panel-body">
-                        @include("controlls.form",["url" => ($task->controll->id) ? "/controlls/edit" : "/controlls", "method" => "POST","action" => ($task->controll->id) ? "Edit" : "Add New", "controll" => $task->controll, "task_id" =>$task->id])
+                        @include("controlls.form",["url" => ($task->controll->id) ? "/controlls/edit/$task->id" : "/controlls", "method" => "POST","action" => ($task->controll->id) ? "Edit" : "Add New", "controll" => $task->controll, "task_id" =>$task->id])
                     </div>
                     <div class="modal-footer">
                         <div class="form-group row">

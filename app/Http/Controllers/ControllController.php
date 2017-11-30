@@ -77,7 +77,16 @@ class ControllController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $controll = Controll::find($id);
+        $controll->update($request->all());
+
+        if($controll->save()){
+            Session::flash("message", "Controll Updated!");
+            return redirect("/task/index/$request->task_id");
+        }else{
+            Session::flash("errorMessage", "Error!");
+            return redirect("/task/index/$request->task_id");
+        }
     }
 
     /**

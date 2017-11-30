@@ -75,6 +75,7 @@ Route::get("/tooling/edit/{id}", "ToolingController@edit");
 Route::post("/tooling/edit/{id}", "ToolingController@update");
 //------------------Controll-------------------
 Route::post("/controlls", "ControllController@store");
+Route::post("/controlls/edit/{id}", "ControllController@update");
 //--------------------------------------------------
 Route::get("/contact","HomeController@contact");
 Route::get('/home', 'HomeController@index')->name('home');

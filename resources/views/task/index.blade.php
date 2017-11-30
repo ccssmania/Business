@@ -71,7 +71,7 @@
                         <td>{{$task->department_id}}</td>
                         <td>{{$task->machine_id}}</td>
                         <td>{{$task->tooling_id}}</td>
-                        <td><a class="btn btn-primary" data-toggle="modal" data-target="#myModalNorm{{$task->id}}" >Controll</a></td>
+                        <td><a class="btn btn-primary" data-toggle="modal" data-target="#myModalNorm_{{$task->id}}" >Controll</a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -89,7 +89,7 @@
 
     <!-- MODAL -->
     @foreach($tasks as $task)
-    <div class="modal fade" id="myModalNorm{{$task->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModalNorm_{{$task->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Modal Header -->
@@ -100,25 +100,18 @@
                         <span class="sr-only">Close</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">
-                        Title
+                        Add Controll
                     </h4>
                 </div>
                 <!-- Modal Body -->
                 <div class="modal-body">
-                    <form role="form">
-                        <div class="panel-body">
-
-                            
-
-                            
-                        </div>
-                    </form>
+                    <div class="panel-body">
+                        @include("controlls.form",["url" => ($task->controll->id) ? "/controlls/edit" : "/controlls", "method" => "POST","action" => ($task->controll->id) ? "Edit" : "Add New", "controll" => $task->controll, "task_id" =>$task->id])
+                    </div>
                     <div class="modal-footer">
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">&nbsp;</label>
-                            <div class="col-sm-10">
-                            </div>
-                        </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

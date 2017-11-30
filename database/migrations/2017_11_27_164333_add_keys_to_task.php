@@ -17,7 +17,6 @@ class AddKeysToTask extends Migration
             $table->foreign("process_id")->references("id")->on("process");
             $table->foreign("department_id")->references("id")->on("department");
             $table->foreign("machine_id")->references("id")->on("machine");
-            $table->foreign("tooling_id")->references("id")->on("tooling");
         });
     }
 

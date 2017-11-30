@@ -73,6 +73,8 @@ Route::get("/tooling/create","ToolingController@create");
 Route::post("/tooling/create", "ToolingController@store");
 Route::get("/tooling/edit/{id}", "ToolingController@edit");
 Route::post("/tooling/edit/{id}", "ToolingController@update");
+//------------------Controll-------------------
+Route::post("/controlls", "ControllController@store");
 //--------------------------------------------------
 Route::get("/contact","HomeController@contact");
 Route::get('/home', 'HomeController@index')->name('home');

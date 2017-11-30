@@ -16,7 +16,6 @@ INSERT INTO `department` (`id`, `name`, `factory_id`, `type`, `extension_m2`, `n
 (14, 'REPAIR CENTER', 0, '', 0, 0, ''),
 (15, 'MEANS OF TRANSPORT', 0, '', 0, 0, '');
 
--- --------------------------------------------------------
 
 INSERT INTO `input` (`id`, `type`, `description`, `task_id`) VALUES
 (1, 'RAW MATERIAL', 'Walden wood boards', 2),
@@ -26,7 +25,6 @@ INSERT INTO `input` (`id`, `type`, `description`, `task_id`) VALUES
 (5, 'ASSEMBLY', 'Assembled door', 17),
 (6, 'ASSEMBLY', 'Assembled desk', 27),
 (7, 'RAW MATERIAL', 'Wooden boards and leather', 1);
-
 
 
 INSERT INTO `machine` (`id`, `department_id`, `line_id`, `cell_id`, `dimension_m2`, `weight`, `name`, `type`, `description`) VALUES
@@ -61,19 +59,6 @@ INSERT INTO `machine` (`id`, `department_id`, `line_id`, `cell_id`, `dimension_m
 (29, 2, 0, 0, 0, 0, 'PACKING MACHINE 2', '', '');
 
 
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(22, '2014_10_12_000000_create_users_table', 1),
-(23, '2014_10_12_100000_create_password_resets_table', 1),
-(24, '2017_11_27_160217_table_tooling', 1),
-(25, '2017_11_27_160721_table_task', 1),
-(26, '2017_11_27_161601_table_process', 1),
-(27, '2017_11_27_161911_table_output', 1),
-(28, '2017_11_27_162310_table_operations', 1),
-(29, '2017_11_27_163151_table_machine', 1),
-(30, '2017_11_27_163630_input', 1),
-(31, '2017_11_27_163945_department', 1);
-
-
 
 INSERT INTO `output` (`id`, `type`, `description`, `task_id`) VALUES
 (1, 'ASSEMBLY', 'Assembled chair', 6),
@@ -83,7 +68,6 @@ INSERT INTO `output` (`id`, `type`, `description`, `task_id`) VALUES
 (5, 'PACKED PRODUCT', 'Packed door', 20),
 (6, 'PACKED PRODUCT', 'Packed desk', 30),
 (7, 'RAW MATERIAL', 'Acquired wooden boards and leather', 1);
-
 
 INSERT INTO `process` (`id`, `name`, `start_time`, `end_Time`) VALUES
 (1, 'CHAIR WITH ARMRESTS', '2017-05-01', '2017-05-16'),
@@ -151,9 +135,5 @@ INSERT INTO `tooling` (`id`, `name`, `description`) VALUES
 (18, 'SCREWS', ''),
 (19, 'VACUUM CLEANER', '');
 
-
-
-
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'ccss', 'ccss@utp.edu.co', '$2y$10$4idihMmuyHiFykt29o3aLu4fmSQR125aRTICS6jcI672QAGx3K5Xi', NULL, '2017-11-29 09:22:23', '2017-11-29 09:22:23');
-

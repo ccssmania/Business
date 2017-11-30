@@ -3,7 +3,7 @@
 	<div class="panel panel-primary">
 
         <div class="panel-heading">
-            <h1 class="panel-title">Add New Output</h1>
+            <h1 class="panel-title">{{$action}} Output</h1>
         </div>
 		<div class="panel-body">
 

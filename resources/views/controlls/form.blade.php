@@ -3,75 +3,89 @@
 	<div class="panel panel-primary">
 
         <div class="panel-heading">
-            <h1 class="panel-title">{{$action}} department</h1>
+            <h1 class="panel-title">{{$action}} Controll</h1>
         </div>
 		<div class="panel-body">
 
 	        <div class="form-group col-sm-12">
 	            <div class="col-sm-4 control-label">
-	                <label class="text-danger">department Name</label>
+	                <label class="text-danger">Task ID</label>
 	            </div>
 
 	            <div class="col-sm-6 input-group">
 	                <div class="input-group-addon">
-	                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+	                    <i class="fa fa-sitemap" aria-hidden="true"></i>
 	                </div>
-	                <input type="text" placeholder="Select One" class="form-control" name="name" value="{{$department->name ? $department->name : ''}}" required>
+	                <input type="hidden" name="task_id" value="{{$task_id}}">
+	                <select class="form-control" disabled name="task_id" required>
+						<option value="">Select One</option>
+						@foreach($tasks as $task)
+							
+							@php $selected = $task_id == $task->id ? 'selected' : '';@endphp
+							<option value="{{$task->id}}" {{$selected}} > {{$task->name}} </option>
+							
+							
+						@endforeach
+					</select>
 	            </div>
 	        </div>
 
-	        <input type="hidden" name="factory_id" value="0">
-
 	        <div class="form-group col-sm-12">
 	            <div class="col-sm-4 control-label">
-	                <label class="text-danger">Type</label>
+	                <label class="text-danger">Start Time</label>
 	            </div>
 
 	            <div class="col-sm-6 input-group">
 	                <div class="input-group-addon">
+	                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
 	                </div>
-	                <input type="text" class="form-control" name="type" value="{{$department->type ? $department->type : ''}}">
+	                <input type="date" class="form-control" name="r_start_date" value="{{$controll->r_start_date ? $controll->r_start_date : ''}}">
 	            </div>
 	        </div>
 
-	   
+	        <div class="form-group col-sm-12">
+	            <div class="col-sm-4 control-label">
+	                <label class="text-danger">End Time</label>
+	            </div>
+
+	            <div class="col-sm-6 input-group">
+	                <div class="input-group-addon">
+	                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+	                </div>
+	                <input type="date" class="form-control" name="r_end_date" value="{{$controll->r_end_date ? $controll->r_end_date : ''}}">
+	            </div>
+	        </div>
 
 	        <div class="form-group col-sm-12">
 	            <div class="col-sm-4 control-label">
-	                <label class="text-danger">Extension M2</label>
+	                <label class="text-danger">Real Setup</label>
 	            </div>
 
 	            <div class="col-sm-6 input-group">
 	                <div class="input-group-addon">
 	                    <i class="fa fa-clock-o" aria-hidden="true"></i>
 	                </div>
-	                <input type="number" step="0.01" class="form-control" placeholder="extension_m2 time" name="extension_m2" value="{{$department->extension_m2 ? $department->extension_m2 : ''}}">
+	                <input type="number" step="0.01" class="form-control" placeholder="setup time" name="r_setup" value="{{$controll->r_setup ? $controll->r_setup : ''}}">
 	            </div>
 	        </div>
 
 	        <div class="form-group col-sm-12">
 	            <div class="col-sm-4 control-label">
-	                <label class="text-danger">Number Employees</label>
+	                <label class="text-danger">Cycle Time</label>
 	            </div>
 
 	            <div class="col-sm-6 input-group">
 	                <div class="input-group-addon">
+	                    <i class="fa fa-clock-o" aria-hidden="true"></i>
 	                </div>
-	                <input type="number"  class="form-control" placeholder="Emploeeys" name="number_employees" value="{{$department->number_employees ? $department->number_employees : ''}}">
+	                <input type="number" step="0.01" class="form-control" placeholder="cycle time" name="r_cycletime" value="{{$controll->r_cycletime ? $controll->r_cycletime : ''}}">
 	            </div>
 	        </div>
-	        <div class="form-group col-sm-12">
-	            <div class="col-sm-4 control-label">
-	                <label class="text-danger">Responsible</label>
-	            </div>
 
-	            <div class="col-sm-6 input-group">
-	                <div class="input-group-addon">
-	                </div>
-	                <input type="text"  class="form-control" placeholder="Responsible" name="responsible" value="{{$department->responsible ? $department->responsible : ''}}">
-	            </div>
-	        </div>
+
 	    </div>
+
+
 
 	    <div class="panel-footer">
 	        <div class="form-group text-center">

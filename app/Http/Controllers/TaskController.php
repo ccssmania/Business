@@ -78,6 +78,7 @@ class TaskController extends Controller
             $tasks = TaskFilter::getTask($request->name,$request->task_id, $id);
         }else
             $tasks = $process->tasks;
+
         return view("task.index",compact("process", "tasks", "request"));
     }
 

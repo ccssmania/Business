@@ -3,7 +3,7 @@
 	<div class="panel panel-primary">
 
         <div class="panel-heading">
-            <h1 class="panel-title">Add New Input</h1>
+            <h1 class="panel-title">{{$action}} Input</h1>
         </div>
 		<div class="panel-body">
 

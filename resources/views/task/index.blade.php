@@ -71,7 +71,7 @@
                         <td>{{$task->department_id}}</td>
                         <td>{{$task->machine_id}}</td>
                         <td>{{$task->tooling_id}}</td>
-                        <td><a class="btn btn-primary" data-toggle="modal" data-target="#myModalNorm_{{$task->id}}" >Controll</a></td>
+                        <td><a class="btn btn-primary" data-toggle="modal" data-target="#myModalNorm{{$task->id}}" >Controll</a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -89,7 +89,7 @@
 
     <!-- MODAL -->
     @foreach($tasks as $task)
-    <div class="modal fade" id="myModalNorm_{{$task->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModalNorm{{$task->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Modal Header -->
@@ -112,6 +112,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">&nbsp;</label>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>

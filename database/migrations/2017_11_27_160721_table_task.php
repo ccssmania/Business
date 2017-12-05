@@ -17,8 +17,8 @@ class TableTask extends Migration
             $table->increments("id");
             $table->string("name");
             $table->string("description");
-            $table->date("start_time");
-            $table->date("end_time");
+            $table->dateTime("start_time");
+            $table->dateTime("end_time");
             $table->double("setup",9,4);
             $table->double("cycletime",9,4);
             $table->integer("process_id")->unsigned()->index();

@@ -68,7 +68,7 @@
 /* 0 */
 /***/ function(module, exports) {
 
-eval("$(document).ready(function() {\n    $('#table').DataTable({\n    \t\"pageLength\": 5\n    });\n    $('.textarea').summernote();\n} );//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9yZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcz84YjY3Il0sInNvdXJjZXNDb250ZW50IjpbIiQoZG9jdW1lbnQpLnJlYWR5KGZ1bmN0aW9uKCkge1xuICAgICQoJyN0YWJsZScpLkRhdGFUYWJsZSh7XG4gICAgXHRcInBhZ2VMZW5ndGhcIjogNVxuICAgIH0pO1xuICAgICQoJy50ZXh0YXJlYScpLnN1bW1lcm5vdGUoKTtcbn0gKTtcblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gcmVzb3VyY2VzL2Fzc2V0cy9qcy9hcHAuanMiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==");
+eval("$(document).ready(function() {\n    $('#table').DataTable({\n    \t\"pageLength\": 5\n    });\n    $('.textarea').summernote();\n    $('.datetime').datetimepicker({format:'YYYY-MM-DD H:mm:ss'}); \n} );//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9yZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcz84YjY3Il0sInNvdXJjZXNDb250ZW50IjpbIiQoZG9jdW1lbnQpLnJlYWR5KGZ1bmN0aW9uKCkge1xuICAgICQoJyN0YWJsZScpLkRhdGFUYWJsZSh7XG4gICAgXHRcInBhZ2VMZW5ndGhcIjogNVxuICAgIH0pO1xuICAgICQoJy50ZXh0YXJlYScpLnN1bW1lcm5vdGUoKTtcbiAgICAkKCcuZGF0ZXRpbWUnKS5kYXRldGltZXBpY2tlcih7Zm9ybWF0OidZWVlZLU1NLUREIEg6bW06c3MnfSk7IFxufSApO1xuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyByZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJzb3VyY2VSb290IjoiIn0=");
 
 /***/ }
 /******/ ]);

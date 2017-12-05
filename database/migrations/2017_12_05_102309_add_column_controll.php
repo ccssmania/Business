@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TableProcess extends Migration
+class AddColumnControll extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class TableProcess extends Migration
      */
     public function up()
     {
-        Schema::create("process", function(Blueprint $table){
-            $table->increments("id");
-            $table->string("name");
-            $table->dateTime("start_time");
-            $table->dateTime("end_time");
+        Schema::table("controlls",function(Blueprint $table){
+            $table->double("start_time_left");
+            $table->double("end_time_left");
         });
     }
 
@@ -28,6 +26,6 @@ class TableProcess extends Migration
      */
     public function down()
     {
-        Schema::drop("process");
+        //
     }
 }

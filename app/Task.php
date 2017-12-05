@@ -16,4 +16,8 @@ class Task extends Model
     		return new Controll;
     	});	
     }
+
+    public function process(){
+    	return $this->belongsTo("App\Process");
+    }
 }

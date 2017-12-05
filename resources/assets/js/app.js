@@ -3,4 +3,5 @@ $(document).ready(function() {
     	"pageLength": 5
     });
     $('.textarea').summernote();
+    $('.datetime').datetimepicker({format:'YYYY-MM-DD H:mm:ss'}); 
 } );

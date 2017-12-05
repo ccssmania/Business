@@ -57,7 +57,7 @@
                         <td><a href="{{url('tooling/edit/'.$tooling->id)}}">{{$tooling->id}}</a></td>
                         <td>{{$tooling->name}}</td>
                         <td> {!!$tooling->description!!} </td>
-                        <td><a class="btn btn-primary" href="{{url('tooling/edit/'.$tooling->id)}}" >Controll</a></td>
+                        <td><a class="btn btn-primary" href="{{url('tooling/edit/'.$tooling->id)}}" >Edit</a></td>
                     </tr>
                     @endforeach
                 </tbody>

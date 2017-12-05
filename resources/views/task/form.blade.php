@@ -42,7 +42,7 @@
 	                <div class="input-group-addon">
 	                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
 	                </div>
-	                <input type="date" class="form-control" name="start_time" value="{{$task->start_time ? $task->start_time : ''}}">
+	                <input type="text" class="form-control" name="start_time" value="{{$task->start_time ? $task->start_time : ''}}">
 	            </div>
 	        </div>
 
@@ -55,7 +55,7 @@
 	                <div class="input-group-addon">
 	                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
 	                </div>
-	                <input type="date" class="form-control" name="end_time" value="{{$task->end_time ? $task->end_time : ''}}">
+	                <input type="text" class="form-control" name="end_time" value="{{$task->end_time ? $task->end_time : ''}}">
 	            </div>
 	        </div>
 

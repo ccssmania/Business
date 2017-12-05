@@ -16,8 +16,8 @@ class TableControlls extends Migration
         Schema::create("controlls", function(Blueprint $table){
             $table->increments("id");
             $table->integer("task_id")->unsigned();
-            $table->date("r_start_date");
-            $table->date("r_end_date");
+            $table->dateTime("r_start_date");
+            $table->dateTime("r_end_date");
             $table->double("r_setup");
             $table->double("r_cycletime");
             $table->foreign("task_id")->references("id")->on("task");

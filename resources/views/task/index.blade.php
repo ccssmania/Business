@@ -71,7 +71,8 @@
                         <td>{{$task->department_id}}</td>
                         <td>{{$task->machine_id}}</td>
                         <td>{{$task->tooling_id}}</td>
-                        <td><a class="btn btn-primary" data-toggle="modal" data-target="#myModalNorm{{$task->id}}" >Controll</a></td>
+                        @php $class = $task->controll->id ? 'success' : 'danger'; @endphp
+                        <td><a class="btn btn-{{$class}}" data-toggle="modal" data-target="#myModalNorm{{$task->id}}" >Controll</a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -90,7 +91,7 @@
     <!-- MODAL -->
     @foreach($tasks as $task)
     <div class="modal fade" id="myModalNorm{{$task->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
@@ -106,12 +107,58 @@
                 <!-- Modal Body -->
                 <div class="modal-body">
                     <div class="panel-body">
-                        @include("controlls.form",["url" => ($task->controll->id) ? "/controlls/edit/$task->id" : "/controlls", "method" => "POST","action" => ($task->controll->id) ? "Edit" : "Add New", "controll" => $task->controll, "task_id" =>$task->id])
+                        @if(!isset($task->controll->id))
+                            @include("controlls.form",["url" => ($task->controll->id) ? "/controlls/edit/$task->id" : "/controlls", "method" => "POST","action" => ($task->controll->id) ? "Edit" : "Add New", "controll" => $task->controll, "task_id" =>$task->id])
+                        @else
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Planning Task</th>
+                                        <th>Controll Task Real Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Task Nane</th>
+                                        <td>{{$task->name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Start Time</th>
+                                        <td> {{$task->start_time}} </td>
+                                        <td> {{$task->controll->r_start_date}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>End Time</th>
+                                        <td> {{$task->end_time}} </td>
+                                        <td> {{$task->controll->r_end_date}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Start Time Rest Planning Task  - Controll Task </th>
+                                        <td> {{$task->controll->start_time_left}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>End Time Rest Planning Task  - Controll Task </th>
+                                        <td> {{$task->controll->end_time_left}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Setup </th>
+                                        <td> {{$task->setup}} </td>
+                                        <td> {{$task->controll->r_setup}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Cycletime </th>
+                                        <td> {{$task->cycletime}} </td>
+                                        <td> {{$task->controll->r_cycletime}} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        @endif
                     </div>
                     <div class="modal-footer">
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">&nbsp;</label>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

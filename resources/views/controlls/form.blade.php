@@ -39,7 +39,7 @@
 	                <div class="input-group-addon">
 	                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
 	                </div>
-	                <input type="date" class="form-control" name="r_start_date" value="{{$controll->r_start_date ? $controll->r_start_date : ''}}">
+	                <input type="text" class="datetime form-control" name="r_start_date" value="{{$controll->r_start_date ? $controll->r_start_date : ''}}">
 	            </div>
 	        </div>
 
@@ -52,7 +52,7 @@
 	                <div class="input-group-addon">
 	                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
 	                </div>
-	                <input type="date" class="form-control" name="r_end_date" value="{{$controll->r_end_date ? $controll->r_end_date : ''}}">
+	                <input type="text" class="datetime form-control" name="r_end_date" value="{{$controll->r_end_date ? $controll->r_end_date : ''}}">
 	            </div>
 	        </div>
 

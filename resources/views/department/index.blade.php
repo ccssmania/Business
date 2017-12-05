@@ -65,7 +65,7 @@
                         <td>{{$department->extension_m2}}</td>
                         <td>{{$department->number_employees}}</td>
                         <td>{{$department->responsible}}</td>
-                        <td><a class="btn btn-plus"  href="{{url('department/edit/'.$department->id)}}">Edit</a></td>
+                        <td><a class="btn btn-primary"  href="{{url('department/edit/'.$department->id)}}">Edit</a></td>
                     </tr>
                     @endforeach
                 </tbody>

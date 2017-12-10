@@ -110,46 +110,40 @@
                         @if(!isset($task->controll->id))
                             @include("controlls.form",["url" => ($task->controll->id) ? "/controlls/edit/$task->id" : "/controlls", "method" => "POST","action" => ($task->controll->id) ? "Edit" : "Add New", "controll" => $task->controll, "task_id" =>$task->id])
                         @else
-                            <table class="table table-bordered">
+                            <table class="table table-inverse  table-bordered">
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>Planning Task</th>
-                                        <th>Controll Task Real Time</th>
+                                        <th>Task Nane</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th>Start Time Rest Planning Task  - Controll Task </th>
+                                        <th>End Time Rest Planning Task  - Controll Task </th>
+                                        <th> Setup </th>
+                                        <th> Cycletime </th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th>Task Nane</th>
+                                        <th>Planning Task</th>
                                         <td>{{$task->name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Start Time</th>
                                         <td> {{$task->start_time}} </td>
-                                        <td> {{$task->controll->r_start_date}} </td>
-                                    </tr>
-                                    <tr>
-                                        <th>End Time</th>
                                         <td> {{$task->end_time}} </td>
-                                        <td> {{$task->controll->r_end_date}} </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Start Time Rest Planning Task  - Controll Task </th>
-                                        <td> {{$task->controll->start_time_left}} </td>
-                                    </tr>
-                                    <tr>
-                                        <th>End Time Rest Planning Task  - Controll Task </th>
-                                        <td> {{$task->controll->end_time_left}} </td>
-                                    </tr>
-                                    <tr>
-                                        <th> Setup </th>
+                                        <td></td>
+                                        <td></td>
                                         <td> {{$task->setup}} </td>
-                                        <td> {{$task->controll->r_setup}} </td>
+                                        <td> {{$task->cycletime}} </td>
                                     </tr>
                                     <tr>
-                                        <th> Cycletime </th>
-                                        <td> {{$task->cycletime}} </td>
-                                        <td> {{$task->controll->r_cycletime}} </td>
+                                        <th>Controll Task Real Time</th>
+                                        <td> {{$task->name}} </td>
+                                        <td> {{$task->controll->r_start_date}} </td>
+                                        <td> {{$task->controll->r_end_date}} </td>
+                                        <td> {{$task->controll->start_time_left}} </td>
+                                        <td> {{$task->controll->end_time_left}} </td>
+                                        <td class=" {{$task->setup >= $task->controll->r_setup ? 'text-success' : 'text-danger'}}"> {{$task->controll->r_setup}} </td>
+                                        <td class=" {{$task->cycletime >= $task->controll->r_cycletime ? 'text-success' : 'text-danger'}}"> {{$task->controll->r_cycletime}} </td>
                                     </tr>
                                 </tbody>
                             </table>

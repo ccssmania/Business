@@ -18,3 +18,24 @@
 body{
 	background-color: white;
 }
+
+.circle{
+	background-color: #37474f;
+	border-radius: 100%;
+}
+
+
+.table-inverse {
+  color: white;
+  background-color: #292b2c;
+
+  th,
+  td,
+  thead th {
+    border-color: gray;
+  }
+
+  &.table-bordered {
+    border: 0;
+  }
+}

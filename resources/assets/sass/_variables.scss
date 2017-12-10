@@ -36,3 +36,8 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+$table-inverse-border-color:    lighten($table-inverse-bg, 15%) !default;
+
+$table-bg-accent:               rgba($gray-light,.075) !default;
+$table-bg-hover:                rgba($gray-light,.075) !default;
